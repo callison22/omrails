@@ -15,13 +15,27 @@ body {
 @import 'bootstrap-responsive'; 
 
 .navbar-inner {
-	@include box-shadow(none !important);
-	border: 0;
+	border: 1px solid grey;
+	padding-left: 20px;
+    padding-right: 50px;
+    border-radius: 4px 4px 4px 4px; 
+    margin: 20px;
 }
+
 
 .footer {
 
 	margin-top: 50px;
+	color: $grayLight;
+	a {
+		color: $gray;
+	}
+}
+
+.header {
+
+	margin-bottom: 50px;
+	font-size: 18px;
 	color: $grayLight;
 	a {
 		color: $gray;

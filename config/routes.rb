@@ -1,4 +1,7 @@
 Omrails::Application.routes.draw do
+  resources :designers
+
+
   get "users/show"
 
   resources :pins
@@ -8,7 +11,12 @@ Omrails::Application.routes.draw do
   match 'users/:id' => 'users#show', :as => :user
 
   get 'about' => 'pages#about'
-
+  get 'clothing' => 'pages#clothing'
+  get 'bags' => 'pages#bags'
+  get 'shoes' => 'pages#shoes'
+  get 'stylefeed' => 'pages#stylefeed'
+  get 'accessories' => 'pages#accessories'
+  
   root :to => 'pins#index'
 
   # The priority is based upon order of creation:

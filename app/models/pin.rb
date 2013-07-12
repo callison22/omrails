@@ -1,8 +1,9 @@
 class Pin < ActiveRecord::Base
-  attr_accessible :description, :image, :image_remote_url
+  attr_accessible :description, :image, :image_remote_url, :Designer
 
 	validates :user_id, presence: true
 	validates :description, presence: true
+	validates :Designer, presence: true
 	validates_attachment :image, presence: true,
 								content_type: { content_type: ['image/jpeg', 'image/jpg', 'image/png', 'image/gif'] },
 								size: { less_than: 5.megabytes } 

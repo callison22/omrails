@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130526164723) do
+ActiveRecord::Schema.define(:version => 20130712210735) do
+
+  create_table "designers", :force => true do |t|
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "pins", :force => true do |t|
     t.string   "description"
@@ -23,8 +29,12 @@ ActiveRecord::Schema.define(:version => 20130526164723) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "image_remote_url"
+    t.string   "Designer"
+    t.string   "price"
   end
 
+  add_index "pins", ["Designer"], :name => "index_pins_on_Designer"
+  add_index "pins", ["price"], :name => "index_pins_on_price"
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
 
   create_table "users", :force => true do |t|

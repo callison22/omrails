@@ -1,34 +1,59 @@
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
- 
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
- 
-      <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to "One Month Rails", root_path, class: "brand" %>
- 
-      <!-- Everything you want hidden at 940px or less, place within here -->
-      <div class="nav-collapse collapse">
-      	<ul class="nav">
-					<li><%= link_to "Home", root_path %></li>
-					<li><%= link_to "About", about_path %></li>
-				</ul>
-				<ul class="nav pull-right">
-					<% if user_signed_in? %>
-            <li><%= link_to "Add +", new_pin_path %></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-            <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
-          <% else %> 
-            <li><%= link_to "Login", new_user_session_path %></li>
-          <% end %> 
-				</ul>	
-      </div>
- 
+
+ <div class="header"> 
+  <div class="navbar navbar-fixed-top">
+
+      <div class="container">
+   
+        <!-- Everything you want hidden at 940px or less, place within here -->
+        <div class="nav-collapse collapse">
+        	<ul class="nav">
+  					
+  				</ul>
+  				<ul class="nav pull-right">
+  					<% if user_signed_in? %>
+              <li><%= link_to "Add +", new_pin_path %></li>
+              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+              <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+            <% else %> 
+              <li><%= link_to "Login", new_user_session_path %></li>
+            <% end %> 
+  				</ul>	
+        </div>
+   
+      
     </div>
   </div>
-</div>
+
+
+   <h2><center><%= link_to image_tag(src="/assets/Kookopa.jpg", alt: "Kookopa"), root_path %></center></h2>
+    <p><i><center>Your best's friends closet you can rely on!</center></i></p>
+
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+        <!-- Everything you want hidden at 940px or less, place within here -->
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li><%= link_to "Designers", designers_path %></li>
+              <li><%= link_to "Clothing", clothing_path %></li>
+              <li><%= link_to "Bags", bags_path %></li>
+              <li><%= link_to "Shoes", shoes_path %></li>
+              <li><%= link_to "Accessories", accessories_path %></li>
+              <li><%= link_to "About", about_path %></li>
+            </ul>
+          </div>
+      
+      </div>
+    </div>
+  </div>
+
+
+  
+ </div> 
