@@ -1,5 +1,23 @@
 <h2>Sign up</h2>
 
+<%
+  # customized code begin
+
+  params[:user][:user_type] ||= 'borrower'
+
+  if ["borrower", "lender"].include? params[:user][:user_type].downcase
+    child_class_name = params[:user][:user_type].downcase.camelize
+    user_type = params[:user][:user_type].downcase
+  else
+    child_class_name = "Borrower"
+    user_type = "borrower"
+  end
+
+  resource.rolable = child_class_name.constantize.new if resource.rolable.nil?
+
+  # customized code end
+%>
+
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
   <%= f.error_notification %>
 
@@ -7,7 +25,16 @@
   <%= f.input :email %>
   <%= f.input :password %>
 	<%= f.input :password_confirmation %>
-  
+  <%= f.input :description, label: "Tell Us About Yourself" %> 
+
+   <% # customized code begin %>
+  <%= fields_for resource.rolable do |rf| %>
+    <% render :partial => "#{child_class_name.underscore}_fields", :locals => { :f => rf } %>
+  <% end %>
+
+  <%= hidden_field :user, :user_type, :value => user_type %>
+  <% # customized code end %>
+
   <div class="form-actions">
   	<%= f.submit "Sign up", class: "btn btn-primary" %>
   </div>

@@ -1,5 +1,6 @@
 Omrails::Application.routes.draw do
-  resources :designers
+
+
 
 
   get "users/show"
@@ -7,7 +8,7 @@ Omrails::Application.routes.draw do
   resources :pins
 
 
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => 'UserRegistrations' }
   match 'users/:id' => 'users#show', :as => :user
 
   get 'about' => 'pages#about'
@@ -16,6 +17,7 @@ Omrails::Application.routes.draw do
   get 'shoes' => 'pages#shoes'
   get 'stylefeed' => 'pages#stylefeed'
   get 'accessories' => 'pages#accessories'
+  get 'designers' => 'pages#designers'
   
   root :to => 'pins#index'
 

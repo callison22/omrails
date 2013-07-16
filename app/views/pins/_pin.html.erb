@@ -6,11 +6,15 @@
 	<p class="Designer" >
 		<%= pin.Designer %>
 	</p>
+	<p class="price" >
+		<%= pin.price %>
+	</p>
 	<p>
 		<strong>
 			Posted by <%= link_to pin.user.name, pin.user %>
 		</strong>
-	</p>		
+	</p>	
+		
 	<% if current_user == pin.user %>
 		<p>
 			<%= link_to 'Edit', edit_pin_path(pin) %>

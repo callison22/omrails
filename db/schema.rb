@@ -11,12 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130712210735) do
+ActiveRecord::Schema.define(:version => 20130715184544) do
+
+  create_table "carts", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "designers", :force => true do |t|
     t.string   "description"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "line_items", :force => true do |t|
+    t.integer  "pins_id"
+    t.integer  "cart_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pins", :force => true do |t|
@@ -31,10 +43,24 @@ ActiveRecord::Schema.define(:version => 20130712210735) do
     t.string   "image_remote_url"
     t.string   "Designer"
     t.string   "price"
+    t.string   "retail_value"
+    t.string   "size"
+    t.string   "condition"
+    t.text     "lender_notes"
+    t.string   "color"
+    t.string   "material"
+    t.string   "classification"
   end
 
   add_index "pins", ["Designer"], :name => "index_pins_on_Designer"
+  add_index "pins", ["classification"], :name => "index_pins_on_classification"
+  add_index "pins", ["color"], :name => "index_pins_on_color"
+  add_index "pins", ["condition"], :name => "index_pins_on_condition"
+  add_index "pins", ["lender_notes"], :name => "index_pins_on_lender_notes"
+  add_index "pins", ["material"], :name => "index_pins_on_material"
   add_index "pins", ["price"], :name => "index_pins_on_price"
+  add_index "pins", ["retail_value"], :name => "index_pins_on_retail_value"
+  add_index "pins", ["size"], :name => "index_pins_on_size"
   add_index "pins", ["user_id"], :name => "index_pins_on_user_id"
 
   create_table "users", :force => true do |t|
@@ -51,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130712210735) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "name"
+    t.text     "description"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

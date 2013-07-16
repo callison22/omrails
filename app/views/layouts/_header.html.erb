@@ -1,7 +1,6 @@
 
  <div class="header"> 
   <div class="navbar navbar-fixed-top">
-
       <div class="container">
    
         <!-- Everything you want hidden at 940px or less, place within here -->
@@ -14,16 +13,14 @@
               <li><%= link_to "Add +", new_pin_path %></li>
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
               <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+              <span class="icon-envelope"></span>
             <% else %> 
               <li><%= link_to "Login", new_user_session_path %></li>
             <% end %> 
   				</ul>	
-        </div>
-   
-      
+        </div>   
     </div>
   </div>
-
 
    <h2><center><%= link_to image_tag(src="/assets/Kookopa.jpg", alt: "Kookopa"), root_path %></center></h2>
     <p><i><center>Your best's friends closet you can rely on!</center></i></p>

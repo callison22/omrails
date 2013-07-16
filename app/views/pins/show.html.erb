@@ -17,10 +17,23 @@
 				<p>
 				  <%= @pin.description %>
 				</p>
-				
+				<p>
+				  Size: <%= @pin.size %>
+				</p>
+				<H5>
+				  Rental Price: <%= @pin.price %> (Retail Value: <%= @pin.price %>)
+				</H5>
+				<H6>
+				  Condition: <%= @pin.condition %>
+				</H6>
+				<p>
+				  Lender's Notes: <%= @pin.lender_notes %>
+				</p>
+
 				<p>
 				  Lender: <%= @pin.user.name %>
 				</p>
+				
 			</div>	
 		</div>	
 	</div>		
