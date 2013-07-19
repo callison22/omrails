@@ -8,8 +8,9 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :description
   # attr_accessible :title, :body
+  
+belongs_to :rolable, :polymorphic => true
 
 has_many :pins
 
-belongs_to :rolable, :polymorphic => true
 end

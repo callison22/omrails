@@ -1,12 +1,8 @@
 Omrails::Application.routes.draw do
 
-
-
-
   get "users/show"
 
   resources :pins
-
 
   devise_for :users, :controllers => { :registrations => 'UserRegistrations' }
   match 'users/:id' => 'users#show', :as => :user
@@ -20,6 +16,9 @@ Omrails::Application.routes.draw do
   get 'designers' => 'pages#designers'
   
   root :to => 'pins#index'
+
+  match 'borrower/sign_up' => 'user_registrations#new', :user => { :user_type => 'borrower' }
+  match 'lender/sign_up' => 'user_registrations#new', :user => { :user_type => 'lender' }
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
